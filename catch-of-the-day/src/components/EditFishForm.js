@@ -6,7 +6,7 @@ class EditFishForm extends React.Component {
 			...this.props.fish,
 			[event.currentTarget.name]: event.currentTarget.value
 		};
-		
+
 		this.props.updateFish(this.props.index, updatedFish);
 	};
 	render() {
@@ -28,8 +28,8 @@ class EditFishForm extends React.Component {
 					type="text"
 					name="status"
 					onChange={this.handleChange}
-					value={this.props.fish.statu
-				}>
+					value={this.props.fish.status}
+				>
 					<option value="available">Fresh!</option>
 					<option value="unavailable">Sold Out!</option>
 				</select>
@@ -44,6 +44,9 @@ class EditFishForm extends React.Component {
 					onChange={this.handleChange}
 					value={this.props.fish.image}
 				/>
+				<button onClick={() => this.props.deleteFish(this.props.index)}>
+					Remove Fish
+				</button>
 			</div>
 		);
 	}
